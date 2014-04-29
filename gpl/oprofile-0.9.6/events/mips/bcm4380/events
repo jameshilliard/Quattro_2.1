@@ -1,0 +1,25 @@
+#----------------------------------------------------------------------------------------------------------------------
+# Broadcom BCM4380
+#----------------------------------------------------------------------------------------------------------------------
+# This set of 4 counters per core which can optionally be limited to count
+# events only on a single VPE or even TC (...or something like that).
+#
+# TO DO: The event value is to contain the module and register set selection
+#	as well as the event. The values are as follows:
+#		event[31:16]	= <unused>
+#		event[15:12]	= mod_id
+#		event[11:10]	= <unused>
+#		event[ 9: 8]	= set_id
+#		event[ 7]		= <unused>
+#		event[ 6: 0]	= event_id 
+#----------------------------------------------------------------------------------------------------------------------
+# Known events as described by the Broadcom CPU Interface documentation
+event:0x0011 counters:0,1,2,3 um:zero minimum:500 name:INSTRUCTIONS : Instructions completed
+event:0x0012 counters:0,1,2,3 um:zero minimum:500 name:CYCLES : Cycles
+event:0x0005 counters:0,1,2,3 um:zero minimum:500 name:ICACHE_MISSES : Instruction cache misses
+event:0x0006 counters:0,1,2,3 um:zero minimum:500 name:ICACHE_HITS : Instruction cache hits
+event:0x0009 counters:0,1,2,3 um:zero minimum:500 name:DCACHE_MISSES : Data cache misses
+event:0x000a counters:0,1,2,3 um:zero minimum:500 name:DCACHE_HITS : Data cache hits
+event:0x0042 counters:0,1,2,3 um:zero minimum:500 name:RAC_LOOKUP_MISSES : Readahead cache lookup misses
+event:0x004b counters:0,1,2,3 um:zero minimum:500 name:RAC_PREFETCHS_BLOCKED : Readahead cache blocked requests due to prefetch
+event:0x0045 counters:0,1,2,3 um:zero minimum:500 name:BIU_RAC_HITS : Bus interface unit readahead cache hits

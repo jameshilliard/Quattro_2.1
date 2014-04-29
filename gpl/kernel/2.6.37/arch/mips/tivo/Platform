@@ -1,0 +1,15 @@
+#
+# Platform dependant code
+#
+platform-$(CONFIG_BCM7344B0) += tivo/Gen08/
+platform-$(CONFIG_BCM7344A0) += tivo/Gen08/
+platform-$(CONFIG_BCM7425B0) += tivo/Gen09/
+
+
+#
+# Common TiVo code
+#
+platform-$(CONFIG_BCM7344B0) += tivo/common/
+platform-$(CONFIG_BCM7344A0) += tivo/common/
+platform-$(CONFIG_BCM7425B0) += tivo/common/
+

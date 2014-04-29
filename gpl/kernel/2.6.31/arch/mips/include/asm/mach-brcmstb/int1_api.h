@@ -1,0 +1,253 @@
+/***************************************************************************
+ *     Copyright (c) 2002-2009, Broadcom Corporation
+ *     All Rights Reserved
+ *     Confidential Property of Broadcom Corporation
+ *
+ *  THIS SOFTWARE MAY ONLY BE USED SUBJECT TO AN EXECUTED SOFTWARE LICENSE
+ *  AGREEMENT  BETWEEN THE USER AND BROADCOM.  YOU HAVE NO RIGHT TO USE OR
+ *  EXPLOIT THIS MATERIAL EXCEPT SUBJECT TO THE TERMS OF SUCH AN AGREEMENT.
+ *
+ * $brcm_Workfile: int1_api.h $
+ * $brcm_Revision: Hydra_Software_Devel/2 $
+ * $brcm_Date: 11/4/09 6:06p $
+ *
+ * Module Description:
+ *
+ * Revision History:
+ *
+ * $brcm_Log: /rockford/bsp/bcm97125/common/int1_api.h $
+ * 
+ * Hydra_Software_Devel/2   11/4/09 6:06p mward
+ * SW7125-4: Remove _MASK or _SHIFT from some names.
+ * 
+ * Hydra_Software_Devel/1   11/4/09 5:43p mward
+ * SW7125-4: chip-specific defines for 7125
+ * 
+ * Hydra_Software_Devel/1   3/5/09 8:11a agin
+ * PR52583: Check in changes for prerel 97420 no-os release.
+ * 
+ * Hydra_Software_Devel/2   3/13/08 2:45p brianlee
+ * PR18303: Fixed interrupt bit definitions.
+ * 
+ * Hydra_Software_Devel/1   12/5/07 3:20p agin
+ * PR37869:
+ * 
+ ***************************************************************************/
+#ifndef _INT1_API_H
+#define _INT1_API_H
+
+#include "bchp_hif_cpu_intr1.h"
+
+#if __cplusplus
+extern "C" {
+#endif
+
+
+/***************************************************************************
+ *  Logical Level 1 Interrupt IDs
+ **************************************************************************/
+
+/* Level 1 Interrupt IDs */        
+
+/***************************************************************************
+ *INTR_W2_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define INT1_ID_MOCA_GENET_0_B_CPU_INTR (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_GENET_0_B_CPU_INTR_SHIFT)/* 16 */
+#define INT1_ID_SUNDRY_PM_INTR_CPU_INTR (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_SUNDRY_PM_INTR_CPU_INTR_SHIFT)/* 5 */
+#define INT1_ID_MOCA_ENET_INTR_CPU_INTR (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_GENET_0_A_CPU_INTR_SHIFT)/* 4 */
+#define INT1_ID_MOCA_INTR_CPU_INTR      (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_INTR_CPU_INTR_SHIFT) 	/* 3 */
+#define INT1_ID_NMI_INTR_CPU_INTR      	(64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_NMI_INTR_CPU_INTR_SHIFT)  	/* 2 */
+#define INT1_ID_UPG_UART2_CPU_INTR      (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_UPG_UART2_CPU_INTR_SHIFT) 	/* 1 */
+#define INT1_ID_UPG_UART1_CPU_INTR      (64+BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_UPG_UART1_CPU_INTR_SHIFT) 	/* 0 */
+
+/***************************************************************************
+ *INTR_W1_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define INT1_ID_BNM_CPU_INTR	       	(32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_BNM_CPU_INTR_SHIFT)       	/* 31 */
+#define INT1_ID_USB_OHCI_0_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_USB_OHCI_0_CPU_INTR_SHIFT)	/* 29 */
+#define INT1_ID_USB_EHCI_0_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_USB_EHCI_0_CPU_INTR_SHIFT) 	/* 28 */
+#define INT1_ID_XPT_MSG_STAT_CPU_INTR   (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_MSG_STAT_CPU_INTR_SHIFT) 	/* 27 */
+#define INT1_ID_XPT_FE_CPU_INTR         (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_FE_CPU_INTR_SHIFT)    	/* 26 */
+#define INT1_ID_XPT_PCR_CPU_INTR        (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_PCR_CPU_INTR_SHIFT)   	/* 25 */
+#define INT1_ID_IPI1_CPU_INTR           (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_IPI1_CPU_INTR_SHIFT)      	/* 21 */
+#define INT1_ID_IPI0_CPU_INTR           (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_IPI0_CPU_INTR_SHIFT)      	/* 20 */
+#define INT1_ID_EXT_IRQ_14_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_14_CPU_INTR_SHIFT) 	/* 19 */
+#define INT1_ID_EXT_IRQ_13_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_13_CPU_INTR_SHIFT) 	/* 18 */
+#define INT1_ID_EXT_IRQ_12_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_12_CPU_INTR_SHIFT) 	/* 17 */
+#define INT1_ID_EXT_IRQ_11_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_11_CPU_INTR_SHIFT) 	/* 16 */
+#define INT1_ID_EXT_IRQ_10_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_10_CPU_INTR_SHIFT) 	/* 15 */
+#define INT1_ID_EXT_IRQ_9_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_9_CPU_INTR_SHIFT) 	/* 14 */
+#define INT1_ID_EXT_IRQ_8_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_8_CPU_INTR_SHIFT) 	/* 13 */
+#define INT1_ID_EXT_IRQ_7_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_7_CPU_INTR_SHIFT) 	/* 12 */
+#define INT1_ID_EXT_IRQ_6_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_6_CPU_INTR_SHIFT) 	/* 11 */
+#define INT1_ID_EXT_IRQ_5_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_5_CPU_INTR_SHIFT) 	/* 10 */
+#define INT1_ID_PCI_SATA_CPU_INTR       (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_SATA_CPU_INTR_SHIFT)  	/* 9 */
+#define INT1_ID_EXT_IRQ_4_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_4_CPU_INTR_SHIFT) 	/* 8 */
+#define INT1_ID_EXT_IRQ_3_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_3_CPU_INTR_SHIFT) 	/* 7 */
+#define INT1_ID_EXT_IRQ_2_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_2_CPU_INTR_SHIFT) 	/* 6 */
+#define INT1_ID_EXT_IRQ_1_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_1_CPU_INTR_SHIFT) 	/* 5 */
+#define INT1_ID_EXT_IRQ_0_CPU_INTR      (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_0_CPU_INTR_SHIFT) 	/* 4 */
+#define INT1_ID_PCI_INTA_2_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_2_CPU_INTR_SHIFT) 	/* 2 */
+#define INT1_ID_PCI_INTA_1_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_1_CPU_INTR_SHIFT) 	/* 1 */
+#define INT1_ID_PCI_INTA_0_CPU_INTR     (32+BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_0_CPU_INTR_SHIFT) 	/* 0 */
+
+/***************************************************************************
+ *INTR_W1_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define INT1_ID_XPT_RAV_CPU_INTR        (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_RAV_CPU_INTR_SHIFT)  	/* 31 */
+#define INT1_ID_AVD0_CPU_INTR           (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_AVD0_CPU_INTR_SHIFT)     	/* 30 */
+#define INT1_ID_SATA_PCIB_CPU_INTR      (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_SATA_PCIB_CPU_INTR_SHIFT)	/* 29 */
+#define INT1_ID_BVNF_CPU_INTR_5		    (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_5_SHIFT)    	/* 28 */
+#define INT1_ID_MC_CPU_INTR             (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_MC_CPU_INTR_SHIFT)       	/* 27 */
+#define INT1_ID_USB_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_USB_CPU_INTR_SHIFT)      	/* 26 */
+#define INT1_ID_SUN_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_SUN_CPU_INTR_SHIFT)      	/* 23 */
+#define INT1_ID_UPG_SC_CPU_INTR         (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_SC_CPU_INTR_SHIFT)   	/* 22 */
+#define INT1_ID_UPG_UART0_CPU_INTR      (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_UART0_CPU_INTR_SHIFT)	/* 21 */
+#define INT1_ID_UPG_SPI_CPU_INTR        (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_SPI_CPU_INTR_SHIFT)  	/* 20 */
+#define INT1_ID_UPG_BSC_CPU_INTR        (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_BSC_CPU_INTR_SHIFT)  	/* 19 */
+#define INT1_ID_UPG_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_CPU_INTR_SHIFT)      	/* 18 */
+#define INT1_ID_UPG_TMR_CPU_INTR        (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_TMR_CPU_INTR_SHIFT)  	/* 17 */
+#define INT1_ID_HIF_SPI_CPU_INTR  		(0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HIF_SPI_CPU_INTR_SHIFT)  	/* 15 */
+#define INT1_ID_MEMC_0_CPU_INTR         (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_MEMC_0_CPU_INTR_SHIFT)   	/* 14 */
+#define INT1_ID_BVNF_CPU_INTR_1         (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_1_SHIFT)    	/* 13 */
+#define INT1_ID_BVNF_CPU_INTR_0         (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_0_SHIFT)    	/* 12 */
+#define INT1_ID_BVNB_CPU_INTR           (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNB_CPU_INTR_SHIFT)     	/* 11 */
+#define INT1_ID_VEC_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_VEC_CPU_INTR_SHIFT)      	/* 10 */
+#define INT1_ID_RPTD_CPU_INTR           (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_RPTD_CPU_INTR_SHIFT)     	/* 9 */
+#define INT1_ID_HDMI_CPU_INTR           (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HDMI_CPU_INTR_SHIFT)     	/* 8 */
+#define INT1_ID_GFX_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_GFX_CPU_INTR_SHIFT)      	/* 7 */
+#define INT1_ID_AIO_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_AIO_CPU_INTR_SHIFT)      	/* 6 */
+#define INT1_ID_BSP_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BSP_CPU_INTR_SHIFT)      	/* 5 */
+#define INT1_ID_XPT_ICAM_CPU_INTR       (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_ICAM_CPU_INTR_SHIFT) 	/* 4 */
+#define INT1_ID_XPT_MSG_CPU_INTR        (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_MSG_CPU_INTR_SHIFT)  	/* 3 */
+#define INT1_ID_XPT_OVFL_CPU_INTR       (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_OVFL_CPU_INTR_SHIFT) 	/* 2 */
+#define INT1_ID_XPT_STATUS_CPU_INTR     (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_STATUS_CPU_INTR_SHIFT)	/* 1 */
+#define INT1_ID_HIF_CPU_INTR            (0+BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HIF_CPU_INTR_SHIFT)      	/* 0 */
+
+/***************************************************************************
+ *  Level 1 ISR Type Definition
+ **************************************************************************/
+typedef void (*FN_L1_ISR) (void *, int);
+
+
+/***************************************************************************
+ *  Level 1 Interrupt Control Structure
+ **************************************************************************/
+
+#ifndef _ASMLANGUAGE
+
+
+typedef struct Int1Control {
+unsigned long                   IntrW0Status;
+
+/***************************************************************************
+ *INTR_W0_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define XPT_RAV_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_RAV_CPU_INTR_MASK    /* 0x80000000 */
+#define AVD0_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_AVD0_CPU_INTR_MASK       /* 0x40000000 */
+#define SATA_PCIB_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_SATA_PCIB_CPU_INTR_MASK  /* 0x20000000 */
+#define BVNF_CPU_INTR_5		 	BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_5_MASK     /* 0x10000000 */
+#define MC_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_MC_CPU_INTR_MASK         /* 0x08000000 */
+#define USB_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_USB_CPU_INTR_MASK        /* 0x04000000 */
+#define SUN_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_SUN_CPU_INTR_MASK        /* 0x00800000 */
+#define UPG_SC_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_SC_CPU_INTR_MASK     /* 0x00400000 */
+#define UPG_UART0_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_UART0_CPU_INTR_MASK  /* 0x00200000 */
+#define UPG_SPI_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_SPI_CPU_INTR_MASK    /* 0x00100000 */
+#define UPG_BSC_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_BSC_CPU_INTR_MASK    /* 0x00080000 */
+#define UPG_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_CPU_INTR_MASK        /* 0x00040000 */
+#define UPG_TMR_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_UPG_TMR_CPU_INTR_MASK    /* 0x00020000 */
+#define HIF_SPI_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HIF_SPI_CPU_INTR_MASK    /* 0x00008000 */
+#define MEMC_0_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_MEMC_0_CPU_INTR_MASK     /* 0x00004000 */
+#define BVNF_CPU_INTR_1 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_1_MASK     /* 0x00002000 */
+#define BVNF_CPU_INTR_0 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNF_CPU_INTR_0_MASK     /* 0x00001000 */
+#define BVNB_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BVNB_CPU_INTR_MASK       /* 0x00000800 */
+#define VEC_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_VEC_CPU_INTR_MASK        /* 0x00000400 */
+#define RPTD_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_RPTD_CPU_INTR_MASK       /* 0x00000200 */
+#define HDMI_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HDMI_CPU_INTR_MASK       /* 0x00000100 */
+#define GFX_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_GFX_CPU_INTR_MASK        /* 0x00000080 */
+#define AIO_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_AIO_CPU_INTR_MASK        /* 0x00000040 */
+#define BSP_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_BSP_CPU_INTR_MASK        /* 0x00000020 */
+#define XPT_ICAM_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_ICAM_CPU_INTR_MASK   /* 0x00000010 */
+#define XPT_MSG_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_MSG_CPU_INTR_MASK    /* 0x00000008 */
+#define XPT_OVFL_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_OVFL_CPU_INTR_MASK   /* 0x00000004 */
+#define XPT_STATUS_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_XPT_STATUS_CPU_INTR_MASK /* 0x00000002 */
+#define HIF_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W0_STATUS_HIF_CPU_INTR_MASK        /* 0x00000001 */
+
+unsigned long                   IntrW1Status;
+
+/***************************************************************************
+ *INTR_W1_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define BNM_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_BNM_CPU_INTR_MASK        /* 0x80000000 */
+#define USB_OHCI_0_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_USB_OHCI_0_CPU_INTR_MASK /* 0x20000000 */
+#define USB_EHCI_0_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_USB_EHCI_0_CPU_INTR_MASK /* 0x10000000 */
+#define XPT_MSG_STAT_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_MSG_STAT_CPU_INTR_MASK /* 0x08000000 */
+#define XPT_FE_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_FE_CPU_INTR_MASK     /* 0x04000000 */
+#define XPT_PCR_CPU_INTR 		BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_XPT_PCR_CPU_INTR_MASK    /* 0x02000000 */
+#define IPI1_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_IPI1_CPU_INTR_MASK       /* 0x00200000 */
+#define IPI0_CPU_INTR 			BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_IPI0_CPU_INTR_MASK       /* 0x00100000 */
+#define EXT_IRQ_14_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_14_CPU_INTR_MASK /* 0x00080000 */
+#define EXT_IRQ_13_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_13_CPU_INTR_MASK /* 0x00040000 */
+#define EXT_IRQ_12_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_12_CPU_INTR_MASK /* 0x00020000 */
+#define EXT_IRQ_11_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_11_CPU_INTR_MASK /* 0x00010000 */
+#define EXT_IRQ_10_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_10_CPU_INTR_MASK /* 0x00008000 */
+#define EXT_IRQ_9_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_9_CPU_INTR_MASK  /* 0x00004000 */
+#define EXT_IRQ_8_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_8_CPU_INTR_MASK  /* 0x00002000 */
+#define EXT_IRQ_7_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_7_CPU_INTR_MASK  /* 0x00001000 */
+#define EXT_IRQ_6_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_6_CPU_INTR_MASK  /* 0x00000800 */
+#define EXT_IRQ_5_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_5_CPU_INTR_MASK  /* 0x00000400 */
+#define PCI_SATA_CPU_INTR   	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_SATA_CPU_INTR_MASK   /* 0x00000200 */
+#define EXT_IRQ_4_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_4_CPU_INTR_MASK  /* 0x00000100 */
+#define EXT_IRQ_3_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_3_CPU_INTR_MASK  /* 0x00000080 */
+#define EXT_IRQ_2_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_2_CPU_INTR_MASK  /* 0x00000040 */
+#define EXT_IRQ_1_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_1_CPU_INTR_MASK  /* 0x00000020 */
+#define EXT_IRQ_0_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_EXT_IRQ_0_CPU_INTR_MASK  /* 0x00000010 */
+#define PCI_INTA_2_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_2_CPU_INTR_MASK /* 0x00000004 */
+#define PCI_INTA_1_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_1_CPU_INTR_MASK /* 0x00000002 */
+#define PCI_INTA_0_CPU_INTR 	BCHP_HIF_CPU_INTR1_INTR_W1_STATUS_PCI_INTA_0_CPU_INTR_MASK /* 0x00000001 */
+
+unsigned long                   IntrW2Status;
+
+/***************************************************************************
+ *INTR_W2_STATUS - Interrupt Status Register
+ ***************************************************************************/
+#define MOCA_GENET_0_B_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_GENET_0_B_CPU_INTR_MASK /* 0x00010000 */
+#define SUNDRY_PM_INTR_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_SUNDRY_PM_INTR_CPU_INTR_MASK /* 0x00000020 */
+#define MOCA_GENET_0_A_CPU_INTR  	BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_GENET_0_A_CPU_INTR_MASK /* 0x00000010 */
+#define MOCA_INTR_CPU_INTR   		BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_MOCA_INTR_CPU_INTR_MASK  /* 0x00000008 */
+#define NMI_INTR_CPU_INTR 	 		BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_NMI_INTR_CPU_INTR_MASK   /* 0x00000004 */
+#define UPG_UART2_CPU_INTR  		BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_UPG_UART2_CPU_INTR_MASK  /* 0x00000002 */
+#define UPG_UART1_CPU_INTR  		BCHP_HIF_CPU_INTR1_INTR_W2_STATUS_UPG_UART1_CPU_INTR_MASK  /* 0x00000001 */
+
+  unsigned long        IntrW0MaskStatus;
+  unsigned long        IntrW1MaskStatus;
+  unsigned long        IntrW2MaskStatus;
+  unsigned long        IntrW0MaskSet;
+  unsigned long        IntrW1MaskSet;
+  unsigned long        IntrW2MaskSet;
+  unsigned long        IntrW0MaskClear;
+  unsigned long        IntrW1MaskClear;
+  unsigned long        IntrW2MaskClear;
+} Int1Control;                                
+
+
+#endif /* _ASMLANGUAGE */
+
+
+/***************************************************************************
+ *  Level 1 Interrupt Function Prototypes
+ **************************************************************************/
+extern void CPUINT1_SetInt1Control(Int1Control *int1c);
+extern unsigned long CPUINT1_GetInt1ControlAddr(void);
+extern void CPUINT1_Isr(void);
+extern void CPUINT1_Disable(unsigned long intId);
+extern void CPUINT1_Enable(unsigned long intId);
+extern int  CPUINT1_ConnectIsr(unsigned long intId, FN_L1_ISR pfunc,
+                               void *param1, int param2);
+
+#if __cplusplus
+}
+#endif
+
+#endif /* _INT1_API_H */
+

@@ -1,0 +1,6 @@
+# Copyright (c) 2009 TiVo Inc.
+# 
+f 0644 root root  lib/libglibctivocompat.so                obj/$TIVO_SYSTEM/libglibctivocompat.so                 package=shlib     arch=all
+f 0644 root root  lib/libglibctivocompat.so                obj/$TIVO_SYSTEM/libglibctivocompat.so                 package=jpm-lib     arch=all
+f 0644 root root  lib/libglibctivocompat.nm                obj/$TIVO_SYSTEM/libglibctivocompat.nm                package=lib     arch=all
+

@@ -1,0 +1,3 @@
+#!/bin/bash
+topdir=`pwd`
+./configure --prefix=$ROOT CC=$TOOLROOT/bin/mips-TiVo-linux-gnu-gcc LD=$TOOLROOT/bin/mips-TiVo-linux-gnu-ld --target=mips-TiVo-linux-gnu --host=mips-TiVo-linux-gnu --with-kernel-support --with-x=no --with-qt=no --with-extra-libs=$ROOT/lib --with-extra-includes=$ROOT/include OPROFILE_MODULE_ARCH=mips-TiVo-linux-gnu CFLAGS=-I$topdir/bfd CPPFLAGS=-I$topdir/bfd LDFLAGS=-L$topdir/bfd
